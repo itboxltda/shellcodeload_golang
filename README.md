@@ -1,40 +1,40 @@
-# ShellcodeLoad-Go
+# ShellcodeLoad-Golang
 
-一款基于 Go 语言开发的高级 Windows Shellcode 加载器，集成了多种现代红队规避（Evasion）与对抗技术。本项目仅供合法的安全研究与授权渗透测试使用。
+Este es un cargador de shellcode de Windows de alto nivel desarrollado en Go, que integra diversas técnicas modernas de evasión y contramedidas de equipos rojos. Este proyecto está destinado exclusivamente a la investigación de seguridad legítima y a las pruebas de penetración autorizadas.
 
-## 核心特性
+## Características principales
 
-- **直接系统调用 (Direct Syscalls)**: 通过汇编实现，绕过用户态 API 钩子 (Inline Hooks)。
-- **堆栈欺骗 (Stack Spoofing)**: 模拟合法的调用堆栈，规避基于调用栈分析的检测。
-- **内存保护切换 (RW -> RX)**: 采用两阶段内存分配方案，避免分配明显的 RWX 内存。
-- **纤程执行 (Fiber Execution)**: 利用 Windows Fiber 机制在用户态执行载荷，具有独立的上下文和规避特性。
-- **睡眠掩码 (Smart Sleep/Sleep Masking)**: 在睡眠期间对内存中的载荷进行加密并修改内存属性（RW），规避内存扫描。
-- **动态 SSN 解析**: 运行时动态获取系统调用号（SSN），不依赖硬编码。
-- **反调试与反沙箱**: 集成多种环境检测逻辑，识别调试器、虚拟机及沙箱环境。
-- **载荷解密**: 支持 ChaCha20 加密载荷的远程获取与实时解密。
+- **Llamadas al sistema directas:** Implementadas en lenguaje ensamblador, omitiendo los ganchos en línea de la API en modo usuario.
+- **Suplantación de pila:** Simula una pila de llamadas legítima para evadir la detección basada en el análisis de la pila de llamadas.
+- **Conmutación de protección de memoria (RW -> RX):** Emplea un esquema de asignación de memoria en dos etapas para evitar la asignación de memoria RWX obvia.
+- **Ejecución de fibra:** Utiliza el mecanismo de Windows Fiber para ejecutar cargas útiles en modo usuario, proporcionando contexto independiente y capacidades de evasión.
+- **Suspensión inteligente/Enmascaramiento de suspensión:** Cifra y modifica los atributos de memoria (RW) durante la suspensión, evadiendo el escaneo de memoria.
+- **Resolución dinámica de SSN:** Obtiene dinámicamente los números de llamada del sistema (SSN) en tiempo de ejecución, sin depender de la codificación.
+- **Antidepuración y antisandboxing:** Integra múltiples lógicas de detección de entornos para identificar depuradores, máquinas virtuales y entornos sandbox.
+- **Descifrado de carga útil**: Admite la adquisición remota y el descifrado en tiempo real de cargas útiles cifradas de ChaCha20.
 
-## 快速开始
+## Inicio rápido
 
-1. **环境准备**: 安装 Go 环境（建议 1.20+）并配置好 Windows 交叉编译环境。
-2. **配置 URL**: 修改 `main.go` 中的 `configURL` 为你的 C2 配置文件地址。
-3. **编译**:
+1. **Preparación del entorno**: Instale el entorno Go (se recomienda la versión 1.20 o superior) y configure el entorno de compilación cruzada de Windows.
+2. **Configuración de URL**: Modifique `configURL` en `main.go` con la dirección de su archivo de configuración de C2.
+3. **Compilación**:   
    ```bash
    GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -H=windowsgui" -o loader.exe
    ```
-## vt检测图:
+## Gráfico de detección de VT:
 ![photo_6337066581753532155_w](https://github.com/user-attachments/assets/955229d0-bf55-4ed1-b153-014529ddfe31)
 
-## 测试360动静无感
+## Prueba del funcionamiento sin movimiento del 360
 <img width="1355" height="829" alt="image" src="https://github.com/user-attachments/assets/890cdfeb-945a-4d88-87c3-64c7abb351b3" />
 
-## 使用手册
+## Manual del usuario
 
-https://github.com/wan1yan/shellcodeload_go/blob/main/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.md
+https://github.com/itboxltda/shellcodeload_golang/blob/main/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.md
 
-## 说明文档
+## Documentación
 
-https://github.com/wan1yan/shellcodeload_go/tree/main#:~:text=6%20hours%20ago-,%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3.md,-Initial%20commit%3A%20Advanced
+https://github.com/itboxltda/shellcodeload_golang/tree/main#:~:text=6%20hours%20ago-,%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3.md,-Initial%20commit%3A%20Advanced
 
-## 免责声明
+## Descargo de responsabilidad
 
-本工具仅用于安全研究与学习。使用者需遵守当地法律法规，严禁用于任何非法用途。作者不对因使用本工具造成的任何后果负责。
+Esta herramienta es solo para fines de investigación y aprendizaje en seguridad. Los usuarios deben cumplir con las leyes y normativas locales y tienen estrictamente prohibido usarla con fines ilegales. El autor no se responsabiliza de las consecuencias derivadas del uso de esta herramienta.
