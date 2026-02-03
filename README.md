@@ -1,4 +1,4 @@
-# ShellcodeLoad-Go
+![photo_6337066581753532155_w](https://github.com/user-attachments/assets/35254825-c885-4244-ac4f-b0ec06de30a9)# ShellcodeLoad-Go
 
 一款基于 Go 语言开发的高级 Windows Shellcode 加载器，集成了多种现代红队规避（Evasion）与对抗技术。本项目仅供合法的安全研究与授权渗透测试使用。
 
@@ -21,6 +21,10 @@
    ```bash
    GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -H=windowsgui" -o loader.exe
    ```
+## vt检测图:
+   ![photo_6337066581753532155_w](https://github.com/user-attachments/assets/955229d0-bf55-4ed1-b153-014529ddfe31)
+## 测试360动静匀无感
+<img width="1355" height="829" alt="image" src="https://github.com/user-attachments/assets/890cdfeb-945a-4d88-87c3-64c7abb351b3" />
 
 ## 免责声明
 
