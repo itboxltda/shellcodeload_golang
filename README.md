@@ -23,7 +23,7 @@
    ```
 ## vt检测图:
    ![photo_6337066581753532155_w](https://github.com/user-attachments/assets/955229d0-bf55-4ed1-b153-014529ddfe31)
-## 测试360动静匀无感
+## 测试360动静无感
 <img width="1355" height="829" alt="image" src="https://github.com/user-attachments/assets/890cdfeb-945a-4d88-87c3-64c7abb351b3" />
 
 ## 免责声明
