@@ -1,19 +1,18 @@
-# Codeload 架构与原理解析
+# Codeload Análisis de arquitectura y principios
 
-本文档将深入探讨 **Codeload** 中使用的技术实现和规避策略。
+Este documento profundizará en las implementaciones técnicas y las estrategias de elusión utilizadas en **Codeload**.
 
-## 高层架构
+## Arquitectura de alto nivel
 
-加载器通过四个不同的阶段来确保隐蔽性和可靠性：
+El cargador garantiza sigilo y fiabilidad a través de cuatro fases distintas:
 
-1.  **系统审计 (执行前)**: 模拟良性用户行为并检查环境完整性。
-2.  **环境验证**: 验证硬件和运行时间指标以检测沙箱。
-3.  **安全获取**: 使用伪造的 TLS 指纹下载 Payload。
-4.  **隐蔽执行**: 解密 Payload 并使用间接系统调用和纤程（Fiber）执行它。
-
+1. **Auditoría del sistema (previa a la ejecución)**: Simular el comportamiento inofensivo del usuario y comprobar la integridad del entorno.
+2. **Verificación del entorno**: Verificar el hardware y las métricas de tiempo de ejecución para probar el entorno de pruebas.
+3. **Adquisición segura**: Descargar la carga útil mediante una huella digital TLS falsificada.
+4. **Ejecución encubierta**: Descifrar la carga útil y ejecutarla mediante llamadas indirectas al sistema y fibras.
 ---
 
-## 1. 核心注入引擎 (`injector.go`)
+## 1. Motor de inyección de núcleo (`injector.go`)
 
 注入引擎负责内存管理和执行。它避免使用像 `VirtualAlloc` 或 `CreateThread` 这样被严密监控的标准 Win32 API。
 
