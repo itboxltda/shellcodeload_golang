@@ -29,11 +29,11 @@ Este es un cargador de shellcode de Windows de alto nivel desarrollado en Go, qu
 
 ## Manual del usuario
 
-https://github.com/itboxltda/shellcodeload_golang/blob/main/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.md
+[Manual](https://github.com/itboxltda/shellcodeload_golang/blob/main/Manual%20de%20usuario.md)
 
 ## Documentación
 
-https://github.com/itboxltda/shellcodeload_golang/tree/main#:~:text=6%20hours%20ago-,%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3.md,-Initial%20commit%3A%20Advanced
+[Documentation Part2](https://github.com/itboxltda/shellcodeload_golang/blob/main/DOCS2.md)
 
 ## Descargo de responsabilidad
 
